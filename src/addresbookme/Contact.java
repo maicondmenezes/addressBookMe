@@ -27,9 +27,12 @@ public class Contact extends Person{
     public String toString() {
         StringBuilder str = new StringBuilder();
         int i;
+        str.append(super.toString()+"\n");
+        str.append("Endereço: "+this.address+"\n");
+        str.append("Email: "+this.email);
+        str.append("Telefpnes:");
         for (i = 0; i < this.phoneNumber.length; i++) {
-            str.append(phoneNumber[i]);
-            str.append("\n");
+            str.append("-"+phoneNumber[i].toString()+"|"+this.phoneNumber[i].getType()+"\n");            
         }
         return str.toString();
     }   
