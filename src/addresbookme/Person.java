@@ -31,11 +31,10 @@ public abstract class Person {
         return cpf;
     }
     
-    //*
     @Override
     public String toString() {
-        return " " + firstName + " " + lastName + 
-                " | CPF: " + cpf + " | Data de Nascimento: " + birthDay;
+        return ""+firstName+" "+lastName+ 
+               " | CPF: " + cpf + 
+               " | Nascimento: " + birthDay;
     }
-    //*/
 }

@@ -5,6 +5,7 @@
  */
 package addresbookme;
 import abstractdatatypes.*;
+import java.util.ArrayList;
 
 /**
  *
@@ -13,27 +14,37 @@ import abstractdatatypes.*;
 public class Contact extends Person{
     private String address;
     private String email;
-    private Phone[] phoneNumber;
+    private ArrayList<Phone> phoneList;
     
     public Contact (String firstName, String lastName, String cpf, Date date, 
-            String address, String email, Phone[] phoneNumber ){        
+            String address, String email, ArrayList<Phone> phoneList ){        
         super(firstName, lastName, cpf, date);
         this.address = address;
         this.email = email;
-        this.phoneNumber = phoneNumber;    
+        this.phoneList = phoneList;    
     } 
     
     @Override
     public String toString() {
         StringBuilder str = new StringBuilder();
-        int i;
-        str.append(super.toString()+"\n");
-        str.append("Endereço: "+this.address+"\n");
-        str.append("Email: "+this.email);
-        str.append("Telefpnes:");
-        for (i = 0; i < this.phoneNumber.length; i++) {
-            str.append("-"+phoneNumber[i].toString()+"|"+this.phoneNumber[i].getType()+"\n");            
+        str.append("Nome: ");
+        str.append(super.toString());str.append("\n");
+        str.append("Endereço: ");
+        str.append(this.address);
+        str.append("\n");
+        str.append("Email: ");
+        str.append(this.email);
+        str.append("\n");
+        str.append("Telefones:");
+        str.append("\n");
+        for(Phone phoneNumber : phoneList){
+            str.append("|");
+            str.append(phoneNumber.toString());
+            str.append("|");
+            str.append(phoneNumber.getType());
+            str.append("\n");
         }
+        
         return str.toString();
     }   
     
